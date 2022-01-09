@@ -69,9 +69,12 @@ CREATE TABLE order_subscription (			--구독주문
 	customer_id			VARCHAR2(20)	NOT NULL,
 	product_set_number	NUMBER			NOT NULL,
 	subscription_date	DATE			NOT NULL,
-	subscription_price	NUMBER			NOT NULL,
+	subscription_price	NUMBER			DEFAULT 250000,
 	starting_date		DATE			NOT NULL,
 	expiration_date		DATE			NOT NULL,
+	soup_check			VARCHAR2(20)   NOT NULL,
+	
+	CONSTRAINTS CH_type CHECK (soup_check IN('포함','미포함')),
 	
 	CONSTRAINTS FK_customer_TO_subscription FOREIGN KEY (customer_id) REFERENCES  customer (customer_id)
 	ON DELETE CASCADE,			--고객 탈퇴시 주문 내역 삭제
@@ -87,7 +90,10 @@ CREATE TABLE product_set (			--밥상
 	product_set_1st		VARCHAR2(300)	NOT NULL,
 	product_set_2nd		VARCHAR2(300)	NOT NULL,
 	product_set_3rd		VARCHAR2(300)	NOT NULL,
-	product_set_4th		VARCHAR2(300)	NOT NULL
+	product_set_4th		VARCHAR2(300)	NOT NULL,
+	soup_check			VARCHAR2(20)    NOT NULL,
+	
+	CONSTRAINTS CH_type CHECK (soup_check IN('포함','미포함'))
 );
 
 SELECT * FROM all_tables;

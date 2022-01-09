@@ -6,26 +6,28 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JDBCUtil {
-	static String driver="oracle.jdbc.driver.OracleDriver";
-	static String url="jdbc:oracle:thin:@localhost:1521:xe";
-	static String user="ryu";
-	static String password="1234";
-	public static Connection connect() {
-		Connection conn=null;
-		try {
-			Class.forName(driver);
-			conn=DriverManager.getConnection(url, user, password);
-		} catch (Exception e) {
-//			System.out.println("db연결실패");
-		}
-		return conn;
-	}
-	public static void disconnect(PreparedStatement pstmt,Connection conn) {
-		if (pstmt != null) try {pstmt.close();} catch (SQLException e1) {
-//			System.out.println("db연결해제실패");
-		}
-		if (conn != null) try {conn.close();} catch (SQLException e1) {
-//			System.out.println("db연결해제실패");
-		}
-	}
+    static String driver="com.mysql.jdbc.Driver";
+    static String url="jdbc:mysql://localhost:3306/basic";
+    static String user="kang";
+    static String password="1234";
+    public static Connection connect() {
+        Connection conn=null;
+        try {
+            Class.forName(driver);
+            conn=DriverManager.getConnection(url, user, password);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return conn;
+    }
+    public static void disconnect(PreparedStatement pstmt,Connection conn) {
+        try {
+            pstmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }

@@ -34,9 +34,12 @@ public class InitDataContructor {
             vo.setProduct_name(mainName.get(i));
             vo.setProduct_price(mainPrice.get(i));
             vo.setProduct_image(mainImg.get(i));
-            vo.setProduct_details(mainDetail.get(i));
-            vo.setProduct_type("main");
+            vo.setDetails(mainDetail.get(i));
+            vo.setProduct_type("메인");
             mainData.add(vo);
+        }
+        for (ProductVO mainDatum : mainData) {
+            System.out.println(mainDatum);
         }
         dao.insertAll(mainData); // 메인 데이터들 insert 진행
         System.out.println("mainData insert 완료");
@@ -52,8 +55,8 @@ public class InitDataContructor {
             vo.setProduct_name(soupName.get(i));
             vo.setProduct_price(soupPrice.get(i));
             vo.setProduct_image(soupImg.get(i));
-            vo.setProduct_details(soupDetail.get(i));
-            vo.setProduct_type("soup");
+            vo.setDetails(soupDetail.get(i));
+            vo.setProduct_type("국");
             soupData.add(vo);
         }
         dao.insertAll(soupData); // 국 데이터들 insert 진행
@@ -71,8 +74,8 @@ public class InitDataContructor {
             vo.setProduct_name(seasonedSideDishName.get(i));
             vo.setProduct_price(seasonedSideDishPrice.get(i));
             vo.setProduct_image(seasonedSideDishImg.get(i));
-            vo.setProduct_details(seasonedSideDishDetail.get(i));
-            vo.setProduct_type("sideDish");
+            vo.setDetails(seasonedSideDishDetail.get(i));
+            vo.setProduct_type("반찬");
             seasonedSideDishData.add(vo);
         }
         dao.insertAll(seasonedSideDishData); // 무침 데이터들 insert 진행
@@ -88,8 +91,8 @@ public class InitDataContructor {
             vo.setProduct_name(friedSideDishName.get(i));
             vo.setProduct_price(friedSideDishPrice.get(i));
             vo.setProduct_image(friedSideDishImg.get(i));
-            vo.setProduct_details(friedSideDishDetail.get(i));
-            vo.setProduct_type("sideDish");
+            vo.setDetails(friedSideDishDetail.get(i));
+            vo.setProduct_type("반찬");
             friedSideDishData.add(vo);
         }
         dao.insertAll(friedSideDishData); // 볶음 데이터들 insert 진행
@@ -105,8 +108,8 @@ public class InitDataContructor {
             vo.setProduct_name(braisedSideDishName.get(i));
             vo.setProduct_price(braisedSideDishPrice.get(i));
             vo.setProduct_image(braisedSideDishImg.get(i));
-            vo.setProduct_details(braisedSideDishDetail.get(i));
-            vo.setProduct_type("sideDish");
+            vo.setDetails(braisedSideDishDetail.get(i));
+            vo.setProduct_type("반찬");
             braisedSideDishData.add(vo);
         }
         dao.insertAll(braisedSideDishData); // 조림 데이터들 insert 진행

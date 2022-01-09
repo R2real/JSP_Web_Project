@@ -16,7 +16,9 @@ public class BoardDeleteAction implements Action {
         BoardDAO dao = new BoardDAO();
         BoardVO vo = new BoardVO();
         vo.setBoard_number(Integer.parseInt(request.getParameter("board_number")));
-        dao.delete(vo);
+        if(dao.delete(vo)){
+            System.out.println("삭제완료");
+        }
 
         ActionForward forward = new ActionForward();
         forward.setPath("boardList.do");
